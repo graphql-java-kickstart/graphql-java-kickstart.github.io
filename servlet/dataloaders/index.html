@@ -9,13 +9,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Directives - GraphQL Java Kickstart</title>
+    <title>Dataloaders - GraphQL Java Kickstart</title>
     <meta name="generator" content="Hugo 0.71.0" />
 
     
     <meta name="description" content="Documentation for GraphQL Java Servlet">
     
-    <link rel="canonical" href="https://www.graphql-java-kickstart.com/spring-boot/directives/">
+    <link rel="canonical" href="https://www.graphql-java-kickstart.com/servlet/dataloaders/">
     
     <meta name="author" content="GraphQL Java Kickstart">
     
@@ -31,7 +31,7 @@
     <meta name="lang:search.result.other" content="# matching documents" />
     <meta name="lang:search.tokenizer" content="[\s\-]+" />
 
-    <meta property="og:url" content="https://www.graphql-java-kickstart.com/spring-boot/directives/">
+    <meta property="og:url" content="https://www.graphql-java-kickstart.com/servlet/dataloaders/">
     <meta property="og:title" content="GraphQL Java Kickstart">
     <meta property="og:image" content="https://www.graphql-java-kickstart.com/images/logo-graphql-kickstart-2000px.png">
     <meta name="apple-mobile-web-app-title" content="GraphQL Java Kickstart">
@@ -216,7 +216,7 @@
             GraphQL Java Kickstart
           </span>
           <span class="md-header-nav__topic">
-            Directives
+            Dataloaders
           </span>
         
       </div>
@@ -264,10 +264,6 @@
       
       
         
-      
-        
-      
-        
           <div class="md-flex__cell md-flex__cell--shrink">
             <div class="md-header-nav__source">
               
@@ -279,7 +275,7 @@
     
   
   
-  <a href="https://github.com/graphql-java-kickstart/graphql-spring-boot" title="Go to repository" target="_blank"
+  <a href="https://github.com/graphql-java-kickstart/graphql-java-servlet" title="Go to repository" target="_blank"
       class="md-source" data-md-source='github'>
     
       <div class="md-source__icon">
@@ -289,12 +285,16 @@
       </div>
     
     <div class="md-source__repository">
-      graphql-java-kickstart/graphql-spring-boot
+      graphql-java-kickstart/graphql-java-servlet
     </div>
   </a>
 
             </div>
           </div>
+        
+      
+        
+      
         
       
     
@@ -331,8 +331,10 @@
         
 
 
+  
+
 <li class="md-tabs__item">
-  <a href="https://www.graphql-java-kickstart.com/servlet/" title="Servlet" class="md-tabs__link">
+  <a href="https://www.graphql-java-kickstart.com/servlet/" title="Servlet" class="md-tabs__link md-tabs__link--active">
     Servlet
   </a>
 </li>
@@ -342,10 +344,8 @@
         
 
 
-  
-
 <li class="md-tabs__item">
-  <a href="https://www.graphql-java-kickstart.com/spring-boot/" title="Spring Boot" class="md-tabs__link md-tabs__link--active">
+  <a href="https://www.graphql-java-kickstart.com/spring-boot/" title="Spring Boot" class="md-tabs__link">
     Spring Boot
   </a>
 </li>
@@ -389,8 +389,6 @@
           
         
           
-        
-          
 
             
               
@@ -402,10 +400,10 @@
 
 
 <li class="md-nav__item">
-  <a href="https://www.graphql-java-kickstart.com/spring-boot/" title="About GraphQL Spring Boot"
+  <a href="https://www.graphql-java-kickstart.com/servlet/" title="About GraphQL Java Servlet"
       class="md-nav__link">
 			
-			About GraphQL Spring Boot
+			About GraphQL Java Servlet
   </a>
 </li>
 
@@ -420,28 +418,10 @@
 
 
 <li class="md-nav__item">
-  <a href="https://www.graphql-java-kickstart.com/spring-boot/getting-started/" title="Getting started"
+  <a href="https://www.graphql-java-kickstart.com/servlet/getting-started/" title="Getting started"
       class="md-nav__link">
 			
 			Getting started
-  </a>
-</li>
-
-
-            
-              
-              
-
-
-
-
-
-
-<li class="md-nav__item">
-  <a href="https://www.graphql-java-kickstart.com/spring-boot/type-definition-factory/" title="Type Definition Factory"
-      class="md-nav__link">
-			
-			Type Definition Factory
   </a>
 </li>
 
@@ -462,17 +442,55 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
         type="checkboxd" id="__toc" />
 
-		<a title="Directives" href="https://www.graphql-java-kickstart.com/spring-boot/directives/"
+		<a title="Dataloaders" href="https://www.graphql-java-kickstart.com/servlet/dataloaders/"
 	        class="md-nav__link md-nav__link--active">
 			
-			Directives
+			Dataloaders
 		</a>
 </li>
 
 
 
             
+              
+              
 
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/servlet/servlet-listener/" title="Servlet Listener"
+      class="md-nav__link">
+			
+			Servlet Listener
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/servlet/osgi/" title="OSGi"
+      class="md-nav__link">
+			
+			OSGi
+  </a>
+</li>
+
+
+            
+
+          
+        
           
         
       
@@ -503,59 +521,64 @@
 				
 				
 		
-		<h1>Directives </h1>
+		<h1>Dataloaders </h1>
 
-		<p>See <a href="https://www.graphql-java.com/documentation/v11/sdl-directives/">Schema Directives</a>
-for a detailed explanation about directives including examples on how to define
-them in the SDL and to create the required classes.</p>
-<p>To add your custom <code>SchemaDirectiveWiring</code> to <code>graphql-spring-boot</code> create a bean
-of type <code>SchemaDirective</code> to have it automatically passed along to the <code>SchemaParser</code></p>
-<pre><code>SchemaDirective.create(&quot;uppercase&quot;, new UppercaseDirective())
-</code></pre><h2 id="basic-usage">Basic usage</h2>
-<p>Let&rsquo;s say you defined a custom directive to make text uppercase in a resource <code>schema.graphqls</code>:</p>
-<pre><code>directive @uppercase on FIELD_DEFINITION
+		<p>It is possible to create context, and consequently dataloaders, in both a request scope and a per query scope by
+customizing <a href="https://github.com/graphql-java-kickstart/graphql-java-servlet/blob/master/graphql-java-kickstart/src/main/java/graphql/kickstart/execution/context/GraphQLContextBuilder.java">GraphQLContextBuilder</a>
+and selecting the appropriate <a href="https://github.com/graphql-java-kickstart/graphql-java-servlet/blob/master/graphql-java-kickstart/src/main/java/graphql/kickstart/execution/context/ContextSetting.java">ContextSetting</a>
+with the provided <a href="https://github.com/graphql-java-kickstart/graphql-java-servlet/blob/master/graphql-java-servlet/src/main/java/graphql/kickstart/servlet/GraphQLConfiguration.java">GraphQLConfiguration</a>.
+A new <a href="https://github.com/graphql-java/java-dataloader/blob/master/src/main/java/org/dataloader/DataLoaderRegistry.java">DataLoaderRegistry</a> should be created in each call to the GraphQLContextBuilder, and the servlet will call the builder at the appropriate times.
+For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomGraphQLContextBuilder</span> <span style="color:#66d9ef">implements</span> GraphQLServletContextBuilder <span style="color:#f92672">{</span>
 
-type Query {
-  hello: String @uppercase
-}
-</code></pre><p>And the actual implementation is the following:</p>
-<pre><code>public class UppercaseDirective implements SchemaDirectiveWiring {
-  @Override
-  public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment&lt;GraphQLFieldDefinition&gt; env) {
-    GraphQLFieldDefinition field = env.getElement();
-    DataFetcher dataFetcher = DataFetcherFactories.wrapDataFetcher(field.getDataFetcher(), {
-      dataFetchingEnvironment, value -&gt;
-        if (value == null) {
-            return null
-        }
-        return  ((String) value).toUpperCase()
-    })
-    return field.transform({ builder -&gt; builder.dataFetcher(dataFetcher) });
-  }
-}
-</code></pre><p>Add our custom directive as a bean:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Bean</span>
-<span style="color:#66d9ef">public</span> SchemaDirective <span style="color:#a6e22e">myCustomDirective</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SchemaDirective<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;uppercase&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> UppercaseDirective<span style="color:#f92672">());</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> DataLoader userDataLoader<span style="color:#f92672">;</span>
+    
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CustomGraphQLContextBuilder</span><span style="color:#f92672">(</span>DataLoader userDataLoader<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userDataLoader</span> <span style="color:#f92672">=</span> userDataLoader<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+    
+  <span style="color:#66d9ef">public</span> GraphQLContext <span style="color:#a6e22e">build</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> DefaultGraphQLContext<span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+    
+  <span style="color:#66d9ef">public</span> GraphQLContext <span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> DefaultGraphQLServletContext<span style="color:#f92672">.</span><span style="color:#a6e22e">createServletContext</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>httpServletRequest<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>httpServletResponse<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>buildDataLoaderRegistry<span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+    
+  <span style="color:#66d9ef">public</span> GraphQLContext <span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>Session session<span style="color:#f92672">,</span> HandshakeRequest handshakeRequest<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> DefaultGraphQLWebSocketContext<span style="color:#f92672">.</span><span style="color:#a6e22e">createWebSocketContext</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>session<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>handshakeRequest<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>buildDataLoaderRegistry<span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+    
+  <span style="color:#66d9ef">private</span> DataLoaderRegistry <span style="color:#a6e22e">buildDataLoaderRegistry</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    DataLoaderRegistry registry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataLoaderRegistry<span style="color:#f92672">();</span>
+    registry<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userDataLoader&#34;</span><span style="color:#f92672">,</span> userDataLoader<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> registry<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>It will then be automatically picked up and added to the <code>SchemaParser</code>.</p>
-<h2 id="supported-locations">Supported locations</h2>
-<p>Support for directives is currently limited to the following locations:</p>
-<ul>
-<li><code>OBJECT</code></li>
-<li><code>FIELD_DEFINITION</code></li>
-<li><code>ARGUMENT_DEFINITION</code></li>
-<li><code>INTERFACE</code></li>
-<li><code>UNION</code></li>
-<li><code>ENUM</code></li>
-<li><code>INPUT_OBJECT</code></li>
-<li><code>INPUT_FIELD_DEFINITION</code></li>
-</ul>
-<p>Meaning directives for the following locations are currently not yet supported:</p>
-<ul>
-<li><code>SCALAR</code></li>
-<li><code>ENUM_VALUE</code></li>
-</ul>
+</code></pre></div><p>It is then possible to access the <a href="https://github.com/graphql-java/java-dataloader/blob/master/src/main/java/org/dataloader/DataLoader.java">DataLoader</a>
+in the resolvers by accessing the <a href="https://github.com/graphql-java/java-dataloader/blob/master/src/main/java/org/dataloader/DataLoaderRegistry.java">DataLoaderRegistry</a> from context. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> CompletableFuture<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getEmailAddress</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">,</span> DataFetchingEnvironment dfe<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// User is the graphQL type
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">final</span> DataLoader<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> UserDetail<span style="color:#f92672">&gt;</span> userDataloader <span style="color:#f92672">=</span>
+   dfe<span style="color:#f92672">.</span><span style="color:#a6e22e">getContext</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getDataLoaderRegistry</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getDataLoader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userDataLoader&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// UserDetail is the data that is loaded
+</span><span style="color:#75715e"></span>
+   <span style="color:#66d9ef">return</span> userDataloader<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())</span>
+     <span style="color:#f92672">.</span><span style="color:#a6e22e">thenApply</span><span style="color:#f92672">(</span>userDetail <span style="color:#f92672">-&gt;</span> userDetail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> userDetail<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmailAddress</span><span style="color:#f92672">()</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>If per request is selected this will cause all queries within the http request,
+if using a batch, to share dataloader caches and batch together load calls as efficiently
+as possible. The dataloaders are dispatched using instrumentation and the correct instrumentation
+will be selected according to the <code>ContextSetting</code>. The default context setting in <code>GraphQLConfiguration</code> is per query.</p>
+<p>Two additional context settings are provided, one for each of the previous settings but without the addition of the
+<code>Dataloader</code> dispatching instrumentation. This is useful for those not using Dataloaders or wanting to supply their
+own dispatching instrumentation though the instrumentation supplier within the <code>GraphQLQueryInvoker</code>.</p>
 
 
 
@@ -576,8 +599,8 @@ type Query {
 
           
           
-            <a href="https://www.graphql-java-kickstart.com/tools/type-definition-factory/"
-                title="Type Definition Factory"
+            <a href="https://www.graphql-java-kickstart.com/tools/getting-started/"
+                title="Getting started"
                 class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                 rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -590,7 +613,7 @@ type Query {
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Type Definition Factory
+                  Getting started
                 </span>
               </div>
             </a>
@@ -598,8 +621,8 @@ type Query {
 
           
           
-            <a href="https://www.graphql-java-kickstart.com/tools/directives/"
-                title="Directives"
+            <a href="https://www.graphql-java-kickstart.com/tools/schema-definition/"
+                title="Defining a schema"
                 class="md-flex md-footer-nav__link md-footer-nav__link--next"
                 rel="next">
               <div class="md-flex__cell md-flex__cell--stretch
@@ -609,7 +632,7 @@ type Query {
                     Next
                   </span>
                   <span style="position: absolute; right: 0; padding: 0 2rem;">
-                  Directives
+                  Defining a schema
                   </span>
                 </span>
               </div>
