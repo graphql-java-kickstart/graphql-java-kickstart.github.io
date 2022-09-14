@@ -124,7 +124,7 @@ Although not necessary, it&rsquo;s generally a good idea to have java interfaces
     <span style=color:#75715e># Released in 1983</span>
     JEDI
 }
-</code></pre></div><h2 id=graphql-deprecations>GraphQL Deprecations</h2><p>GraphQL field/enum deprecations can be provided by the <code>@deprecated(reason: String)</code> directive, and are added to the generated schema.
+</code></pre></div><h2 id=graphql-deprecations>GraphQL Deprecations</h2><p>GraphQL deprecations on output fields, enums, arguments, directive arguments, and input fields can be provided by the <code>@deprecated(reason: String)</code> directive, and are added to the generated schema.
 You can either supply a <strong>reason</strong> argument with a string value or not supply one and receive a &ldquo;No longer supported&rdquo; message when introspected:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-graphql data-lang=graphql><span style=color:#75715e># One of the films in the Star Wars Trilogy</span>
 <span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>Episode</span> {
     <span style=color:#75715e># Released in 1977</span>
