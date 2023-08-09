@@ -8,8 +8,7 @@
 GraphQL Java Kickstart</label><ul class=md-nav__list data-md-scrollfix><li class=md-nav__item><a href=https://www.graphql-java-kickstart.com/servlet/ title="About GraphQL Java Servlet" class=md-nav__link>About GraphQL Java Servlet</a></li><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle=toc type=checkboxd id=__toc>
 <a title="Getting started" href=https://www.graphql-java-kickstart.com/servlet/getting-started/ class="md-nav__link md-nav__link--active">Getting started</a></li><li class=md-nav__item><a href=https://www.graphql-java-kickstart.com/servlet/dataloaders/ title=Dataloaders class=md-nav__link>Dataloaders</a></li><li class=md-nav__item><a href=https://www.graphql-java-kickstart.com/servlet/servlet-listener/ title="Servlet Listener" class=md-nav__link>Servlet Listener</a></li><li class=md-nav__item><a href=https://www.graphql-java-kickstart.com/servlet/osgi/ title=OSGi class=md-nav__link>OSGi</a></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component=toc><div class=md-sidebar__scrollwrap><div class=md-sidebar__inner><nav id=scrollspy class="md-nav md-nav--secondary"></nav></div></div></div><div class=md-content><article class="md-content__inner md-typeset"><h1>Getting started</h1><p>A working version of this example can be found at <a href=https://github.com/graphql-java-kickstart/samples/tree/master/servlet-hello-world>https://github.com/graphql-java-kickstart/samples/tree/master/servlet-hello-world</a>.</p><h2 id=build-with-gradle>Build with Gradle</h2><p>First you set up a basic build script. You can use any build system you like, but the code you need to work with
 Gradle and Maven is included here.</p><h3 id=create-a-gradle-build-file>Create a Gradle build file</h3><p>Make sure <code>mavenCentral</code> is among your repositories. The example build script below uses <code>org.gretty</code> to provide
-a webserver to show a working example. You need to add the <code>jcenter</code> repository as well to be able to pull in all
-dependencies required by <code>gretty</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gradle data-lang=gradle>plugins <span style=color:#f92672>{</span>
+a webserver to show a working example.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gradle data-lang=gradle>plugins <span style=color:#f92672>{</span>
     id <span style=color:#e6db74>&#39;war&#39;</span>
     id <span style=color:#e6db74>&#39;idea&#39;</span>
     id <span style=color:#e6db74>&#39;org.gretty&#39;</span> version <span style=color:#e6db74>&#39;2.2.0&#39;</span>
@@ -20,7 +19,7 @@ repositories <span style=color:#f92672>{</span>
 <span style=color:#f92672>}</span>
 
 dependencies <span style=color:#f92672>{</span>
-    compile <span style=color:#e6db74>&#39;com.graphql-java-kickstart:graphql-java-servlet:11.1.0&#39;</span>
+    compile <span style=color:#e6db74>&#39;com.graphql-java-kickstart:graphql-java-servlet:15.0.0&#39;</span>
 <span style=color:#f92672>}</span>
 </code></pre></div><h2 id=build-with-maven>Build with Maven</h2><p>First you set up a basic build script. You can use any build system you like, but the code you need to work with
 Gradle and Maven is included here. We&rsquo;re assuming you already have a basic understanding of the build system of your
@@ -28,7 +27,7 @@ choosing and how to use it. So instead of providing fully functioning build scri
 needed to add <code>graphql-java-servlet</code> to your application.</p><h3 id=update-your-maven-pom-file>Update your Maven pom file</h3><p>Add the <code>graphql-java-servlet</code> dependency to your <code>dependencies</code> section:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;dependency&gt;</span>
   <span style=color:#f92672>&lt;groupId&gt;</span>com.graphql-java-kickstart<span style=color:#f92672>&lt;/groupId&gt;</span>
   <span style=color:#f92672>&lt;artifactId&gt;</span>graphql-java-servlet<span style=color:#f92672>&lt;/artifactId&gt;</span>
-  <span style=color:#f92672>&lt;version&gt;</span>11.1.0<span style=color:#f92672>&lt;/version&gt;</span>
+  <span style=color:#f92672>&lt;version&gt;</span>15.0.0<span style=color:#f92672>&lt;/version&gt;</span>
 <span style=color:#f92672>&lt;/dependency&gt;</span>
 </code></pre></div><h2 id=create-a-servlet-class>Create a Servlet class</h2><p>Create a servlet class extending <code>SimpleGraphQLHttpServlet</code>. This is the basic &ldquo;Hello world&rdquo; example. It creates
 the GraphQL Query <code>{ hello }</code> that can be executed and which will respond with &ldquo;world&rdquo;. It creates the GraphQL
@@ -67,9 +66,9 @@ In this case the URL to post the GraphQL query to is <a href=http://localhost:80
     hello
 <span style=color:#f92672>}</span>
 </code></pre></div><p>Our Hello Servlet will respond with:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-	<span style=color:#f92672>&#34;data&#34;</span>: {
-		<span style=color:#f92672>&#34;hello&#34;</span>: <span style=color:#e6db74>&#34;world&#34;</span>
-	}
+  <span style=color:#f92672>&#34;data&#34;</span>: {
+    <span style=color:#f92672>&#34;hello&#34;</span>: <span style=color:#e6db74>&#34;world&#34;</span>
+  }
 }
 </code></pre></div></article></div></main><footer class=md-footer><div class=md-footer-nav><nav class="md-footer-nav__inner md-grid"><a href=https://www.graphql-java-kickstart.com/spring-boot/getting-started/ title="Getting started" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel=next><div class="md-flex__cell md-flex__cell--stretch
 md-footer-nav__title"><span class=md-flex__ellipsis><span class=md-footer-nav__direction>Next</span>
@@ -77,4 +76,4 @@ md-footer-nav__title"><span class=md-flex__ellipsis><span class=md-footer-nav__d
 md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class=md-footer-copyright><div class=md-footer-copyright__highlight>Released under the Apache 2.0 license</div>powered by
 <a href=https://gohugo.io>Hugo</a>
 and
-<a href=https://github.com/oliemansm/hugo-material-docs>Material Docs for Hugo</a></div><div class=md-footer-social><link rel=stylesheet type=text/css href=https://www.graphql-java-kickstart.com/fonts/font-awesome.css><a href=https://github.com/graphql-java-kickstart target=_blank class="md-footer-social__link fa fa-github-alt"></a></div></div></div></footer></div><script>var base_url='https://www.graphql-java-kickstart.com/',repo_id='graphql-java-kickstart'</script><script src=https://www.graphql-java-kickstart.com/javascripts/application.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js></script><script>hljs.registerLanguage("graphql",function(a){return{aliases:["gql"],k:{keyword:"query mutation subscription|10 type input schema directive interface union scalar fragment|10 enum on ...",literal:"true false null"},c:[a.HCM,a.QSM,a.NM,{cN:"type",b:"[^\\w][A-Z][a-z]",e:"\\W",eE:!0},{cN:"literal",b:"[^\\w][A-Z][A-Z]",e:"\\W",eE:!0},{cN:"variable",b:"\\$",e:"\\W",eE:!0},{cN:"keyword",b:"[.]{2}",e:"\\."},{cN:"meta",b:"@",e:"\\W",eE:!0}],i:/([;<']|BEGIN)/}}),hljs.initHighlightingOnLoad()</script><script>app.initialize({version:"1.0.4",url:{base:"https://www.graphql-java-kickstart.com/"}})</script></body></html>
+<a href=https://github.com/oliemansm/hugo-material-docs>Material Docs for Hugo</a></div><div class=md-footer-social><link rel=stylesheet type=text/css href=https://www.graphql-java-kickstart.com/fonts/font-awesome.css><a href=https://github.com/graphql-java-kickstart target=_blank class="md-footer-social__link fa fa-github-alt"></a></div></div></div></footer></div><script>var base_url='https://www.graphql-java-kickstart.com/',repo_id='graphql-java-kickstart'</script><script src=https://www.graphql-java-kickstart.com/javascripts/application.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.registerLanguage("graphql",function(a){return{aliases:["gql"],k:{keyword:"query mutation subscription|10 type input schema directive interface union scalar fragment|10 enum on ...",literal:"true false null"},c:[a.HCM,a.QSM,a.NM,{cN:"type",b:"[^\\w][A-Z][a-z]",e:"\\W",eE:!0},{cN:"literal",b:"[^\\w][A-Z][A-Z]",e:"\\W",eE:!0},{cN:"variable",b:"\\$",e:"\\W",eE:!0},{cN:"keyword",b:"[.]{2}",e:"\\."},{cN:"meta",b:"@",e:"\\W",eE:!0}],i:/([;<']|BEGIN)/}}),hljs.initHighlightingOnLoad()</script><script>app.initialize({version:"1.0.4",url:{base:"https://www.graphql-java-kickstart.com/"}})</script></body></html>
