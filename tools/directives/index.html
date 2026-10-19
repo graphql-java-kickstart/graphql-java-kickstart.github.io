@@ -18,30 +18,25 @@ when creating the <code>SchemaParser</code> using</p><pre tabindex=0><code>Schem
 type Query {
   hello: String @uppercase
 }
-</code></pre><p>And the actual implementation is the following:</p><pre tabindex=0><code>public class UppercaseDirective implements SchemaDirectiveWiring {
-  @Override
-  public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment&lt;GraphQLFieldDefinition&gt; env) {
-    GraphQLFieldDefinition field = env.getElement();
-    GraphQLFieldsContainer parentType = env.getFieldsContainer();
-
-    // build a data fetcher that transforms the given value to uppercase
-    DataFetcher originalFetcher = env.getCodeRegistry().getDataFetcher(parentType, field);
-    DataFetcher dataFetcher =
-        DataFetcherFactories.wrapDataFetcher(
-            originalFetcher,
-            ((dataFetchingEnvironment, value) -&gt; {
-              if (value instanceof String) {
-                return ((String) value).toUpperCase();
-              }
-              return value;
-            }));
-
-    // now change the field definition to use the new uppercase data fetcher
-    env.getCodeRegistry().dataFetcher(parentType, field, dataFetcher);
-    return field;
-  }
-}
-</code></pre><p>Add our custom directive when creating the schema parser:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>SchemaParser.<span style=color:#a6e22e>newParser</span>()
+</code></pre><p>And the actual implementation is the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>UppercaseDirective</span> <span style=color:#66d9ef>implements</span> SchemaDirectiveWiring {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>public</span> GraphQLFieldDefinition <span style=color:#a6e22e>onField</span>(SchemaDirectiveWiringEnvironment<span style=color:#f92672>&lt;</span>GraphQLFieldDefinition<span style=color:#f92672>&gt;</span> env) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// build a data fetcher that transforms the given value to uppercase</span>
+</span></span><span style=display:flex><span>    DataFetcher<span style=color:#f92672>&lt;?&gt;</span> dataFetcher <span style=color:#f92672>=</span>
+</span></span><span style=display:flex><span>        DataFetcherFactories.<span style=color:#a6e22e>wrapDataFetcher</span>(
+</span></span><span style=display:flex><span>            env.<span style=color:#a6e22e>getFieldDataFetcher</span>(),
+</span></span><span style=display:flex><span>            ((dataFetchingEnvironment, value) <span style=color:#f92672>-&gt;</span> {
+</span></span><span style=display:flex><span>              <span style=color:#66d9ef>if</span> (value <span style=color:#66d9ef>instanceof</span> String) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> ((String) value).<span style=color:#a6e22e>toUpperCase</span>();
+</span></span><span style=display:flex><span>              }
+</span></span><span style=display:flex><span>              <span style=color:#66d9ef>return</span> value;
+</span></span><span style=display:flex><span>            }));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// now change the field to use the new uppercase data fetcher</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> env.<span style=color:#a6e22e>setFieldDataFetcher</span>(dataFetcher);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Add our custom directive when creating the schema parser:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>SchemaParser.<span style=color:#a6e22e>newParser</span>()
 </span></span><span style=display:flex><span>  .<span style=color:#a6e22e>file</span>(<span style=color:#e6db74>&#34;schema.graphqls&#34;</span>)
 </span></span><span style=display:flex><span>  .<span style=color:#a6e22e>directive</span>(<span style=color:#e6db74>&#34;uppercase&#34;</span>, <span style=color:#66d9ef>new</span> UppercaseDirective())
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// ...</span>
